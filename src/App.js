@@ -26,6 +26,13 @@ class App extends Component {
       todo: this.state.todo
     });
   };
+
+  remove = text => {
+    this.setState({
+      todo: this.state.todo.filter(a => a !== text)
+    });
+  };
+
   render() {
     return (
       <Container>
@@ -47,7 +54,10 @@ class App extends Component {
           <ListGroup>
             {this.state.todo.map(text => {
               return (
-                <ListGroupItem style={{ paddingRight: "120px", color: "red" }}>
+                <ListGroupItem
+                  onClick={() => this.remove(text)}
+                  style={{ paddingRight: "120px", color: "red" }}
+                >
                   {text}
                 </ListGroupItem>
               );
