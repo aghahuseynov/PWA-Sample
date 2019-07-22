@@ -17,19 +17,33 @@ import {
 
 class App extends Component {
   state = {
-    todo: ["What is PWA ?", "PWA convert mobile"]
+    todo: [
+      {
+        id: Math.random()
+          .toString(36)
+          .substr(2, 9),
+        name: "test"
+      }
+    ]
   };
   text = null;
   addText = () => {
-    if (this.text) this.state.todo.push(this.text);
+    if (this.text)
+      this.state.todo.push({
+        name: this.text,
+        id: Math.random()
+          .toString(36)
+          .substr(2, 9)
+      });
+
     this.setState({
       todo: this.state.todo
     });
   };
 
-  remove = text => {
+  remove = selectionData => {
     this.setState({
-      todo: this.state.todo.filter(a => a !== text)
+      todo: this.state.todo.filter(a => a.id !== selectionData.id)
     });
   };
 
@@ -52,13 +66,13 @@ class App extends Component {
         </Row>
         <Row style={{ marginTop: "25px" }}>
           <ListGroup>
-            {this.state.todo.map(text => {
+            {this.state.todo.map(selectionData => {
               return (
                 <ListGroupItem
-                  onClick={() => this.remove(text)}
+                  onClick={() => this.remove(selectionData)}
                   style={{ paddingRight: "120px", color: "red" }}
                 >
-                  {text}
+                  {selectionData.name}
                 </ListGroupItem>
               );
             })}
