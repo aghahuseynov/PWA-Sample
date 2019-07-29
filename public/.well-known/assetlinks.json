@@ -1,5 +1,5 @@
 [{
     "relation": ["delegate_permission/common.handle_all_urls"],
     "target" : { "namespace": "android_app", "package_name": "com.pivado.app",
-                 "sha256_cert_fingerprints": ["7F:44:7C:27:CC:32:CB:FA:24:5D:D7:F4:2F:54:CD:A1:88:5D:06:20:B3:C4:0F:C8:E5:91:51:2B:30:80:BC:BB"] }
+                 "sha256_cert_fingerprints": ["16:61:3E:E3:02:1A:B2:CD:C0:41:17:13:2E:A6:1F:B9:36:29:A9:64:BA:4E:4A:69:0E:FD:AA:4D:20:B4:A4:65"] }
   }]
