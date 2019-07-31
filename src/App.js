@@ -1,12 +1,10 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import {
   Container,
   Row,
-  Col,
   Input,
   Button,
   FormGroup,
@@ -74,12 +72,17 @@ class App extends Component {
           </Form>
         </Row>
         <Row style={{ marginTop: "25px" }}>
-          <ListGroup>
-            {this.state.todo.map(selectionData => {
+          <ListGroup itemScope={true}>
+            {this.state.todo.map((selectionData, index) => {
               return (
                 <ListGroupItem
+                  key={index}
                   onClick={() => this.remove(selectionData)}
-                  style={{ paddingRight: "120px", color: "red" }}
+                  style={{
+                    paddingRight: "120px",
+                    color: "red",
+                    marginBottom: 5
+                  }}
                 >
                   {selectionData.name}
                 </ListGroupItem>
